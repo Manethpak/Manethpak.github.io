@@ -13,6 +13,7 @@ module.exports = {
         300: "#282b30",
         400: "#1e2124",
       },
+      transparent: colors.transparent,
       white: colors.white,
       gray: colors.gray,
       violet: colors.violet,
