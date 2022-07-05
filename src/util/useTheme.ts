@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Theme } from "../constant/theme.enum";
 
-export default function useDarkmode() {
+export default function useTheme() {
   const [theme, setTheme] = useState<Theme>(
     localStorage.getItem("theme") as Theme
   );

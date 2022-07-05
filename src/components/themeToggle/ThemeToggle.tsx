@@ -1,12 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import MoonIcon from "../icons/MoonIcon";
-import useDarkmode from "../../util/useDarkmode";
-import SunIcon from "../icons/SunIcon";
+import useTheme from "../../util/useTheme";
+import { MoonIcon, SunIcon } from "../icons";
 
 const ThemeToggle = () => {
-  const { theme, switchTheme } = useDarkmode();
+  const { theme, switchTheme } = useTheme();
 
   return (
     <motion.button

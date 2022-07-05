@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { EmailIcon, GithubIcon, LinkedinIcon } from "../icons";
-import useDarkmode from "src/util/useDarkmode";
+import useTheme from "src/util/useTheme";
 
 const Contact = () => {
-  const { theme } = useDarkmode();
+  const { theme } = useTheme();
   console.log(theme);
   const list = [
     {
