@@ -2,6 +2,7 @@
   "name": "mad-meridian",
   "type": "module",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,6 +11,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.8.2"
+    "@astrojs/svelte": "^3.1.0",
+    "@astrojs/tailwind": "^4.0.0",
+    "astro": "^2.8.2",
+    "svelte": "^4.0.0",
+    "tailwindcss": "^3.0.24"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9"
   }
 }

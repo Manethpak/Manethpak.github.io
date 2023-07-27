@@ -1,0 +1,69 @@
+---
+import SkillIcon from "./common/SkillIcon.astro";
+import SkillIconSvg from "./common/SkillIconSvg.astro";
+import SKILL from "../constant/skill.constant";
+---
+
+<section id="skill">
+  <div
+    class="max-w-xl my-[8rem] prose prose-neutral dark:prose-invert prose-a:no-underline prose-h2:my-2"
+  >
+    <h2>Skill & Tool</h2>
+    <div class="icon-grids">
+      {
+        SKILL.map((skill) => {
+          if (skill.isSvg) {
+            return (
+              <SkillIconSvg
+                name={skill.name}
+                link={skill.link}
+                ignoreColor={skill?.ignoreColor}
+                icon={skill.icon}
+              />
+            );
+          } else
+            return (
+              <SkillIcon
+                name={skill.name}
+                link={skill.link}
+                icon={skill.icon}
+                ignoreColor={skill?.ignoreColor}
+              />
+            );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .icon-grids {
+    @apply grid grid-cols-3 md:grid-cols-6 gap-x-8;
+  }
+</style>
+
+<script type="module">
+  const iconLinks = document.querySelectorAll('[data-role="icon"]');
+  iconLinks.forEach((link) => {
+    const icon = link.children[0];
+    link.addEventListener("mouseenter", () => {
+      icon.classList.add("colored");
+    });
+    link.addEventListener("mouseleave", () => {
+      icon.classList.remove("colored");
+    });
+  });
+
+  const svgPaths = document.querySelectorAll('[data-role="svg"]');
+  svgPaths.forEach((svgPath) => {
+    const path = svgPath.children[0].children[0];
+    const defaultColor = path.getAttribute("fill");
+    path.setAttribute("fill", "#fff");
+    svgPath.addEventListener("mouseenter", () => {
+      if (defaultColor) path.setAttribute("fill", defaultColor);
+    });
+    svgPath.addEventListener("mouseleave", () => {
+      path.setAttribute("fill", "#fff");
+    });
+  });
+</script>

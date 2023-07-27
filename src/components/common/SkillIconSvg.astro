@@ -1,0 +1,16 @@
+---
+const { link, name, icon } = Astro.props;
+---
+
+<a
+  data-role="svg"
+  href={link}
+  target="_blank"
+  class="hover:-translate-y-2 transition-all w-[56px] h-[98px] relative group grid place-items-center"
+>
+  <slot class="text-4xl transition-colors" set:html={icon} />
+  <sub
+    class="text-[14px] absolute text-center inset-x-0 -translate-y-4 opacity-0 group-hover:opacity-100 transition-opacity delay-75"
+    >{name}</sub
+  >
+</a>
