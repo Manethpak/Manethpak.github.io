@@ -1,6 +1,8 @@
 ---
+import { ToastContainer } from "react-toastify";
 import DesktopNav from "../components/DesktopNav.astro";
 import MobileNav from "../components/MobileNav.astro";
+import "react-toastify/dist/ReactToastify.css";
 
 export interface Props {
   title: string;
@@ -34,6 +36,16 @@ const { title } = Astro.props;
         <slot />
       </main>
     </div>
+    <ToastContainer
+      client:load
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      draggable
+      theme="dark"
+    />
   </body>
 </html>
 

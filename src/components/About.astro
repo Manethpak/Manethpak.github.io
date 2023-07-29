@@ -1,3 +1,7 @@
+---
+import Copy from "../components/Copy";
+---
+
 <section class="relative" id="about">
   <article
     class="max-w-xl my-[2rem] lg:my-[8rem] prose prose-neutral dark:prose-invert prose-h2:mt-10"
@@ -37,16 +41,23 @@
     </h3>
 
     <div class="flex gap-6 justify-center text-[3rem]">
-      <a href="https://www.linkedin.com/in/maneth-pak/">
+      <a
+        href="https://www.linkedin.com/in/maneth-pak/"
+        class="hover:opacity-75"
+      >
         <i class="devicon-linkedin-plain"></i>
       </a>
-      <a href="https://www.linkedin.com/in/maneth-pak/">
+      <a href="https://github.com/Manethpak/" class="hover:opacity-75">
         <i class="devicon-github-plain"></i>
       </a>
     </div>
     <div class="flex flex-col gap-2 text-lg pt-4">
-      <p>
-        Email: <a href="mailto:manethpak00@gmail.com">manethpak00@gmail.com</a>
+      <p class="flex gap-2">
+        Email: <a
+          href="mailto:manethpak00@gmail.com"
+          class="hover:opacity-80 hover:underline mr-4">Manethpak00@gmail.com</a
+        >
+        <Copy client:load />
       </p>
     </div>
   </div>
