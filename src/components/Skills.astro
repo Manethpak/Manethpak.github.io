@@ -58,12 +58,12 @@ import SKILL from "../constant/skill.constant";
   svgPaths.forEach((svgPath) => {
     const path = svgPath.children[0].children[0];
     const defaultColor = path.getAttribute("fill");
-    path.setAttribute("fill", "#fff");
+    path.setAttribute("fill", "currentcolor");
     svgPath.addEventListener("mouseenter", () => {
       if (defaultColor) path.setAttribute("fill", defaultColor);
     });
     svgPath.addEventListener("mouseleave", () => {
-      path.setAttribute("fill", "#fff");
+      path.setAttribute("fill", "currentColor");
     });
   });
 </script>
