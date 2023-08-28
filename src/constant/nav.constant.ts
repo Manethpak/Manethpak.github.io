@@ -1,7 +1,7 @@
 const nav = [
   "About",
   "Skill",
-  // "Experience",
+  "Experience",
   // "Project",
   // "Guestbook"
 ];

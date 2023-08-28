@@ -1,26 +1,39 @@
 ---
 import { Menu } from "lucide-react";
+import nav from "../constant/nav.constant";
 ---
 
 <nav
   id="desktop"
   class="hidden fixed lg:inset-y-0 lg:flex z-10 top-4 gap-4 lg:flex-col justify-center flex-row"
 >
-  <a href="/#about" class="active">About</a>
-  <a href="/#skill">Skill</a>
+  {
+    nav.map((val, i) => (
+      <a href={"#" + val.toLowerCase()} class={i === 0 ? "active" : ""}>
+        {val}
+      </a>
+    ))
+  }
 </nav>
 
 <nav id="mobile" class="fixed lg:hidden right-4 top-4 z-20">
   <div class="dropdown dropdown-end">
     <label tabindex="0" class="btn m-1">
-      <Menu size="24" />
+      <Menu size="24" client:load />
     </label>
     <ul
       tabindex="0"
-      class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52"
+      class="dropdown-content bg-base-200 menu p-2 shadow rounded-box w-52"
     >
-      <li><a href="/#about" class="active">About</a></li>
-      <li><a href="/#skill">Skill</a></li>
+      {
+        nav.map((val, i) => (
+          <li>
+            <a href={"#" + val.toLowerCase()} class={i === 0 ? "active" : ""}>
+              {val}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </nav>
@@ -34,7 +47,7 @@ import { Menu } from "lucide-react";
     width: 100%;
   }
 
-  .active {
+  nav a.active {
     @apply text-blue-500;
   }
 </style>
@@ -53,10 +66,10 @@ import { Menu } from "lucide-react";
       if (top >= offset && top < offset + height) {
         nav.forEach((link) => {
           link.classList.remove("active");
-          const targetLink = document.querySelector(`nav a[href*="${id}"]`);
-          if (targetLink) {
-            targetLink.classList.add("active");
-          }
+          const targetLink = document.querySelectorAll(`nav a[href*="${id}"]`);
+          targetLink.forEach((link) => {
+            link.classList.add("active");
+          });
         });
       }
     });
